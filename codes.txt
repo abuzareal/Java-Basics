@@ -1,0 +1,555 @@
+Fibonacci 
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        /* write your code here */
+
+        int i = 1, n = 10, n1 = 1, n2 = 1, n3;
+        System.out.print(n1 + " " + n2);
+
+        while (i <= n - 2)
+        {
+            n3 = n1 + n2;
+            System.out.print(" " + n3);
+            n1 = n2;
+            n2 = n3;
+            i++;
+        }
+
+    }
+
+}
+
+Prime numbers
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int i = 2;
+        boolean flag = false;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter The Number");
+        int n = sc.nextInt();
+
+        while(i < n/2){
+            if(n%i == 0){
+                flag = true;
+                break;
+            }
+            i++;
+        }
+        if(!flag){
+            System.out.println("It is a Prime Number");
+        }
+
+        else{
+            System.out.println("Not a Prime number");
+        }
+    }
+}
+
+Palindrome
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code
+
+        String reverse = "";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter The String");
+        String a = sc.nextLine();
+
+        for(int i = a.length() -1 ;i >= 0; i--){
+                reverse += a.charAt(i);
+        }
+
+        if(a.equals(reverse)){
+            System.out.println("It is a Palindrome");
+        }
+
+        else{
+            System.out.println("Not a Palindrome");
+        }
+    }
+}
+
+Armstrong
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        int temp, a;
+        double c = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+
+        temp = n;
+        while(n > 0){
+            a = n%10;
+            c = c + Math.pow(a, 3);
+            n = n/10;
+        }
+
+        if(temp==c){
+            System.out.println("It is an Armstrong Number");
+        }
+        else{
+            System.out.println("Not an Amrstrong Number");
+        }
+    }
+}
+
+factorial
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    //public int factorial(int n);
+
+        public static void main(String[] args) {
+	// write your code here
+            int result= 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        sc.close();
+        result = factorial(n);
+
+        System.out.println(result);
+    }
+
+    static int factorial(int n){
+
+        if(n == 0){
+            return 1;
+        }
+        else{
+            return (n * factorial(n - 1));
+        }
+    }
+}
+
+
+reverse string 
+
+
+// Java program to ReverseString using ByteArray.
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
+
+class ReverseString {
+	public static void main(String[] args)
+	{
+		String input = "GeeksforGeeks";
+
+		// getBytes() method to convert string
+		// into bytes[].
+		byte[] strAsByteArray = input.getBytes();
+
+		byte[] result = new byte[strAsByteArray.length];
+
+		// Store result in reverse order into the
+		// result byte[]
+		for (int i = 0; i < strAsByteArray.length; i++)
+			result[i] = strAsByteArray[strAsByteArray.length - i - 1];
+
+		System.out.println(new String(result));
+	}
+}
+
+
+Remove Duplicates from Array
+
+
+package com.company;
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements");
+        int n = sc.nextInt();
+        int[] array1 = new int[n];
+        //int[] array2 = new int[n];
+        System.out.println("Enter the elements");
+
+        for(int i : array1) array1[i] = sc.nextInt();
+        
+        Arrays.sort(array1);
+        int[] temp = new int[n];
+
+        // Start traversing elements
+        int j = 0;
+        for (int i=0; i<n-1; i++)
+            // If current element is not equal
+            // to next element then store that
+            // current element
+            if (array1[i] != array1[i+1])
+                temp[j++] = array1[i];
+
+        // Store the last element as whether
+        // it is unique or repeated, it hasn't
+        // stored previously
+        temp[j++] = array1[n-1];
+        for (int i=0; i<n; i++){
+            System.out.print(temp[i]+" ");     }
+        }
+}
+
+
+Printing Patterns
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of levels");
+        int n = sc.nextInt();
+        //1
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.print("\n");
+        }
+
+        //2
+        for(int i = 0; i < n; i++){
+            for(int j=0; j<n-i; j++){
+                System.out.print(" ");
+            }
+
+            for(int k = 0; k <= i; k++){
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+}
+
+GCD of 2 numbers
+
+package com.company;
+
+
+import java.util.Scanner;
+
+/*
+
+In Euclid's algorithm, we start with two numbers X and Y. If Y is zero then the greatest common divisor of both will be X, but if Y is not zero then we assign the Y to X and Y becomes X%Y. Once again we check if Y is zero, if yes then we have our greatest common divisor or GCD otherwise we keep continue like this until Y becomes zero.
+
+Since we are using the modulo operator, the number is getting smaller and smaller at each iteration, so the X%Y will eventually become zero.
+
+Let' take an example of calculating GCD of 54 and 24 using Euclid's algorithm. Here X = 54 and Y = 24 since Y is not zero we move to the logical part and assign X = Y, which means X becomes 24 and Y becomes 54%24 i.e 6.
+
+Since Y is still not zero, we again apply the logic. This time X will become 6 and Y will become 24%6 i.e. Y=0. Bingo, Y is now zero which means we have our answer and it's nothing but the value of X which is 6 (six).
+
+
+
+ */
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the first number");
+        int n1 = sc.nextInt();
+
+        System.out.println("Enter the second number");
+        int n2 = sc.nextInt();
+
+        System.out.println("GCD of the two numbers is " + GCD(n1, n2));
+    }
+
+    public static int GCD(int n1, int n2){
+        if(n2 == 0){
+            return n1;
+        }
+
+        return GCD(n2, n1%n2);
+    }
+
+}
+
+Square root
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number");
+        double n = sc.nextDouble();
+
+        double root = Math.sqrt(n);
+
+        System.out.println("The Square root is " + root);
+    }
+}
+
+Leap year
+
+package com.company;
+
+import java.util.Scanner;
+/*
+
+A year is a leap year if its multiple of 400 or multiple of 4 but not 100
+
+ Leap years are years that are evenly divisible by 4.
+ However, years that end in 00 are not leap years unless they are evenly divisible by 400.
+ */
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the year");
+        int n = sc.nextInt();
+
+        if(n % 400 == 0 || (n % 100 != 0 && n % 4 == 0)){
+            System.out.println("It is a Leap Year");
+        }
+
+        else{
+            System.out.println("It is not a Leap Year");
+        }
+    }
+}
+
+Binary search
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the Number of Elements\n");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the Elements of the Array");
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter the Number you want to Search\n");
+        int item = sc.nextInt();
+
+        Binary(arr, n, item);
+    }
+
+    public static void Binary(int[] arr,int n, int item){
+        int first = 0;
+        int last = n-1;
+        int middle = (first + last)/2;
+
+        while(first <= last){
+
+            if(arr[middle] < item){
+               first = middle + 1;
+            }
+
+            else if(arr[middle] == item){
+                System.out.println("The Element " + item + " is found at location " + (middle + 1));
+                break;
+            }
+
+            else{
+                last = middle - 1;
+            }
+
+            middle = (first + last) / 2;
+        }
+
+        if(first> last){
+            System.out.println("Element not found");
+        }
+    }
+}
+
+ String Anagrams
+
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Scanner sc = new Scanner(System.in);
+
+        String s1 =  new String("");
+        System.out.println("Enter the First String: ");
+        s1 = sc.nextLine();
+
+        String s2 = new String("");
+        System.out.println("Enter the Second String");
+        s2 = sc.nextLine();
+
+        Anagrams(s1, s2);
+
+    }
+
+    public static void Anagrams(String s1, String s2){
+        s1 = s1.replaceAll("\\s", "");
+        s2 = s2.replaceAll("\\s", "");
+
+        if(s1.length() != s2.length()){
+            System.out.println("Strings are of different lengths. Hence, they are NOT ANAGRAMS! ");
+        }
+
+        char[] array1 = s1.toLowerCase().toCharArray();
+        char[] array2 = s2.toLowerCase().toCharArray();
+
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+
+        if(Arrays.equals(array1, array2)){
+            System.out.println("The Strings " + "'" + s1 + "' and '" + s2 + " are ANAGRAMS!" );
+        }
+
+        else{
+            System.out.println("The Strings " + "'" + s1 + "' and '" + s2 + " are NOT ANAGRAMS!" );
+        }
+    }
+}
+
+ Reverse a number
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int i = 0;
+        System.out.println("Enter the Number");
+        int n = sc.nextInt();
+
+        while (n > 0) {
+            i =  n % 10;
+            System.out.print(i);
+            n = n / 10;
+        }
+    }
+}
+
+ Bubble sort
+
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void BubbleSort(int arr[], int n){
+        for(int i = 0; i < n - 1; i++){
+            for(int j = 0; j < n - i - 1; j++){
+                if(arr[j] > arr[j + 1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("The Sorted Array is : " + Arrays.toString(arr) );
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the Size of Array ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the Elements of the Array ");
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        BubbleSort(arr, n);
+    }
+}
+
+First non repeated character
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc =  new Scanner(System.in);
+
+        System.out.println("Enter the String");
+        String str = sc.nextLine();
+
+        char[] arr = str.toCharArray();
+
+        for(char i : str.toCharArray()){
+            if(str.indexOf(i) == str.lastIndexOf(i)){
+                System.out.println("Non-repeating element is " + i);
+                break;
+            }
+        }
+    }
+}
